@@ -1,0 +1,36 @@
+{
+    "name": "dynamophp/hash",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Dynamophp\\Hash\\": "src/"
+
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dynamophp\\Hash\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Baptiste CONTRERAS"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "phpstan/phpstan": "^1.9",
+        "phpstan/extension-installer": "^1.2",
+        "phpstan/phpstan-beberlei-assert": "^1.0",
+        "phpstan/phpstan-symfony": "^1.2",
+        "thecodingmachine/phpstan-strict-rules": "^1.0",
+        "spaze/phpstan-disallowed-calls": "^2.10",
+        "friendsofphp/php-cs-fixer": "^3.13"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    }
+}
