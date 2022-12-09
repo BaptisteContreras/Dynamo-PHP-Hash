@@ -107,4 +107,31 @@ class VerificationContextTest extends TestCase
 
         self::assertNotNull($this->hasher->hash('dynamoPhpTestKey', $context, false));
     }
+
+    public function testTotalSizeIsZeroThrowAnException(): void
+    {
+        $context = Context::buildSha256(0, 0); // Max here is 64
+
+        $this->expectException(InvalidSelectionSizeException::class);
+
+        $this->hasher->hash('dynamoPhpTestKey', $context);
+    }
+
+    public function testTotalSizeIsNegativeThrowAnException(): void
+    {
+        $context = Context::buildSha256(-1, 0); // Max here is 64
+
+        $this->expectException(InvalidSelectionSizeException::class);
+
+        $this->hasher->hash('dynamoPhpTestKey', $context);
+    }
+
+    public function testTotalSizeIsNegativeThrowAnException2(): void
+    {
+        $context = Context::buildSha256(0, -1); // Max here is 64
+
+        $this->expectException(InvalidSelectionSizeException::class);
+
+        $this->hasher->hash('dynamoPhpTestKey', $context);
+    }
 }

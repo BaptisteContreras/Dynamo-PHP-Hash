@@ -35,54 +35,54 @@ class ValueVarianteBench
 
         $this->hasher->hash($params['value'], $context);
     }
-
-    #[Revs(10000)]
-    #[Iterations(10)]
-    #[OutputMode('throughput')]
-    #[OutputTimeUnit('seconds')]
-    #[ParamProviders(['provideValueMed', 'provideStartSelection', 'provideEndSelection'])]
-    public function benchHashVarianteMedValue($params): void
-    {
-        if (0 === $params['start'] && 0 === $params['end']) {
-            return;
-        }
-
-        $context = Context::buildSha256($params['start'], $params['end']);
-
-        $this->hasher->hash($params['value'], $context);
-    }
-
-    #[Revs(10000)]
-    #[Iterations(10)]
-    #[OutputMode('throughput')]
-    #[OutputTimeUnit('seconds')]
-    #[ParamProviders(['provideValueMed2', 'provideStartSelection', 'provideEndSelection'])]
-    public function benchHashVarianteMedValue2($params): void
-    {
-        if (0 === $params['start'] && 0 === $params['end']) {
-            return;
-        }
-
-        $context = Context::buildSha256($params['start'], $params['end']);
-
-        $this->hasher->hash($params['value'], $context);
-    }
-
-    #[Revs(10000)]
-    #[Iterations(10)]
-    #[OutputMode('throughput')]
-    #[OutputTimeUnit('seconds')]
-    #[ParamProviders(['provideValueBig', 'provideStartSelection', 'provideEndSelection'])]
-    public function benchHashVarianteBigValue($params): void
-    {
-        if (0 === $params['start'] && 0 === $params['end']) {
-            return;
-        }
-
-        $context = Context::buildSha256($params['start'], $params['end']);
-
-        $this->hasher->hash($params['value'], $context);
-    }
+//
+//    #[Revs(10000)]
+//    #[Iterations(10)]
+//    #[OutputMode('throughput')]
+//    #[OutputTimeUnit('seconds')]
+//    #[ParamProviders(['provideValueMed', 'provideStartSelection', 'provideEndSelection'])]
+//    public function benchHashVarianteMedValue($params): void
+//    {
+//        if (0 === $params['start'] && 0 === $params['end']) {
+//            return;
+//        }
+//
+//        $context = Context::buildSha256($params['start'], $params['end']);
+//
+//        $this->hasher->hash($params['value'], $context);
+//    }
+//
+//    #[Revs(10000)]
+//    #[Iterations(10)]
+//    #[OutputMode('throughput')]
+//    #[OutputTimeUnit('seconds')]
+//    #[ParamProviders(['provideValueMed2', 'provideStartSelection', 'provideEndSelection'])]
+//    public function benchHashVarianteMedValue2($params): void
+//    {
+//        if (0 === $params['start'] && 0 === $params['end']) {
+//            return;
+//        }
+//
+//        $context = Context::buildSha256($params['start'], $params['end']);
+//
+//        $this->hasher->hash($params['value'], $context);
+//    }
+//
+//    #[Revs(10000)]
+//    #[Iterations(10)]
+//    #[OutputMode('throughput')]
+//    #[OutputTimeUnit('seconds')]
+//    #[ParamProviders(['provideValueBig', 'provideStartSelection', 'provideEndSelection'])]
+//    public function benchHashVarianteBigValue($params): void
+//    {
+//        if (0 === $params['start'] && 0 === $params['end']) {
+//            return;
+//        }
+//
+//        $context = Context::buildSha256($params['start'], $params['end']);
+//
+//        $this->hasher->hash($params['value'], $context);
+//    }
 
     public function provideValue()
     {
@@ -128,7 +128,7 @@ class ValueVarianteBench
     {
         yield '0' => ['start' => 0];
         yield '3' => ['start' => 3];
-        yield '5' => ['start' => 5];
+//        yield '5' => ['start' => 5];
 //        yield '10' => ['start' => 10];
 //        yield '20' => ['start' => 20];
 //        yield '32' => ['start' => 32];
@@ -138,7 +138,7 @@ class ValueVarianteBench
     {
         yield '0' => ['end' => 0];
         yield '3' => ['end' => 3];
-        yield '5' => ['end' => 5];
+//        yield '5' => ['end' => 5];
 //        yield '10' => ['end' => 10];
 //        yield '20' => ['end' => 20];
 //        yield '32' => ['end' => 32];

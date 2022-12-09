@@ -48,7 +48,7 @@ class Hasher
     {
         $totalSelectionSize = $context->getStartSecondHashSelection() + $context->getEndSecondHashSelection();
 
-        if ($totalSelectionSize > $context->getPrimaryHashAlgorithmResultSize()) {
+        if ($totalSelectionSize <= 0 || $totalSelectionSize > $context->getPrimaryHashAlgorithmResultSize()) {
             throw new InvalidSelectionSizeException($context);
         }
     }
@@ -71,8 +71,8 @@ class Hasher
     private function selectParts(string $hashResult, int $firstPartSelection, int $secondPartSelection): array
     {
         return [
-            substr($hashResult, 0, $firstPartSelection),
-            substr($hashResult, -$secondPartSelection, $secondPartSelection),
+            $firstPartSelection > 0 ? substr($hashResult, 0, $firstPartSelection) : '',
+            $secondPartSelection > 0 ? substr($hashResult, -$secondPartSelection, $secondPartSelection) : '',
         ];
     }
 }
