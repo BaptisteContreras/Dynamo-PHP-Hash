@@ -1,6 +1,7 @@
 {
     "name": "dynamophp/hash",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Dynamophp\\Hash\\": "src/"
